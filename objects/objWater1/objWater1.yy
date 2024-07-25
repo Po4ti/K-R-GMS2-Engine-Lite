@@ -8,8 +8,8 @@
   "name":"objWater1",
   "overriddenProperties":[],
   "parent":{
-    "name":"Common",
-    "path":"folders/Objects/Gimmicks/Water/Common.yy",
+    "name":"Water",
+    "path":"folders/Objects/Gimmicks/Water.yy",
   },
   "parentObjectId":{
     "name":"objWater2",

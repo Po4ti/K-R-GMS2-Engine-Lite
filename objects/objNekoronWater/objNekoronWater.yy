@@ -8,8 +8,8 @@
   "name":"objNekoronWater",
   "overriddenProperties":[],
   "parent":{
-    "name":"Oldschool",
-    "path":"folders/Objects/Gimmicks/Water/Oldschool.yy",
+    "name":"Water",
+    "path":"folders/Objects/Gimmicks/Water.yy",
   },
   "parentObjectId":null,
   "persistent":false,

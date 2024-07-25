@@ -10,7 +10,6 @@ global.save_player = { //Keeping track of the last player properties for saving
 	sy: -1,
 	sangle: 0,
 	sgrav: 1,
-	sforms: 0,
 };
 
 global.difficulty = 0; //The difficulty selected
@@ -30,6 +29,5 @@ global.vine_toggle = false; //Toggles which type of twin vine is active
 global.current_music = -1; //The current music playing
 global.last_xscale = 1; //Last xscale the player had
 global.overlay = false; //Sets if the information overlay is currently visible
-global.connected = false; //Checks if you're currently connected to the online
 
 randomize(); //Sets a random seed

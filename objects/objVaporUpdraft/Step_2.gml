@@ -1,1 +1,0 @@
-object_index.drafted = false;

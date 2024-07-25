@@ -28,7 +28,6 @@ switch (menu) {
 		//Skips the "break" to ensure it draws all the subsequent options
 		
 	case MENU_OPTIONS.OPTIONS:
-	case MENU_OPTIONS.ONLINE:
 		//Draws all the options
 		for (var i = index; i < length; i++) {
 			var curr_option = option[i];

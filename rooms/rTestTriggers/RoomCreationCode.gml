@@ -1,1 +1,0 @@
-activate_trigger("test1auto");

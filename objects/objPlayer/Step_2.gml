@@ -21,25 +21,21 @@ dynamic_collision(false);
 #endregion
 
 #region Old collision with platform
-if (!global.forms.lunarkid) {
-	var platform = instance_place_check(x, y, objPlatform, tangible_collision);
 
-	if (platform != null && platform.visible) {
-		if (platform.snap > 0 && ((global.grav == 1 && y - vspd / 2 <= platform.bbox_top) || (global.grav == -1 && y - vspd / 2 >= platform.bbox_bottom))) {
-			y = (global.grav == 1) ? platform.bbox_top - 9 : platform.bbox_bottom + 8;
-			vspd = platform.vspeed;
+var platform = instance_place_check(x, y, objPlatform, tangible_collision);
+
+if (platform != null && platform.visible) {
+	if (platform.snap > 0 && ((global.grav == 1 && y - vspd / 2 <= platform.bbox_top) || (global.grav == -1 && y - vspd / 2 >= platform.bbox_bottom))) {
+		y = (global.grav == 1) ? platform.bbox_top - 9 : platform.bbox_bottom + 8;
+		vspd = platform.vspeed;
 			
-			if (platform.object_index != objDisappearPlatform) {
-				on_platform = true;
-			}
+
+		on_platform = true;
 			
-			reset_jumps();
-		}
-		
-		if (platform.object_index == objDisappearPlatform) {
-			platform.visible = false;
-		}
+			
+		reset_jumps();
 	}
+		
 }
 #endregion
  

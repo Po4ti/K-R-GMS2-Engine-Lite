@@ -60,15 +60,4 @@ switch (menu) {
 	        audio_play_sound(sndJump, 0, false);
 	    }
 		break;
-		
-	case MENU_OPTIONS.ONLINE:
-		if (is_pressed(global.controls_menu.accept)) {
-			option[selected].on_select();
-		}
-		
-		if (is_pressed(global.controls_menu.back)) {
-	        menu = MENU_OPTIONS.OPTIONS;
-	        audio_play_sound(sndJump, 0, false);
-	    }
-		break;
 }

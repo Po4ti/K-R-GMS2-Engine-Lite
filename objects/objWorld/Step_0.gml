@@ -30,7 +30,6 @@ if (global.game_started) {
 		if (global.game_paused) {
 			pause_screen = sprite_create_from_surface(application_surface, 0, 0, display_get_gui_width(), display_get_gui_height(), false, false, 0, 0);
 			instance_deactivate_all(true);
-			instance_activate_object(objOnlinePlayer);
 		} else {
 			instance_activate_all();
 		
@@ -109,6 +108,20 @@ if (global.debug_enable && global.game_started) {
 		global.debug_hitbox %= 3;
 	}
 	
+	if (is_pressed(global.controls_debug.roomD)) {
+		if (room_get_name(room_previous(room)) != "rOptions") {
+			instance_destroy(objPlayer);
+			room_goto_previous();
+		}
+	}
+		
+	if (is_pressed(global.controls_debug.roomU)) {
+		if (room != room_last) {
+			instance_destroy(objPlayer);
+			room_goto_next();
+		}
+	}
+	
 	if (keyboard_check(vk_control) && is_pressed(ord("B"))) {
 		global.collision_type ^= true;
 	}
@@ -118,30 +131,6 @@ if (global.debug_enable && global.game_started) {
 			reset_jumps();
 		}
 	
-		if (keyboard_check_pressed(ord("1"))) {
-			global.forms.dotkid ^= true;
-		}
-		
-		if (keyboard_check_pressed(ord("2"))) {
-			global.forms.vkid++;
-			global.forms.vkid %= 3;
-		}
-		
-		if (keyboard_check_pressed(ord("3"))) {
-			global.forms.telekid ^= true;
-		}
-		
-		if (keyboard_check_pressed(ord("4"))) {
-			global.forms.lunarkid ^= true;
-			
-			with (objPlayer) {
-				grav_amount = 0;
-			}
-		}
-		
-		if (keyboard_check_pressed(ord("5"))) {
-			global.forms.linekid ^= true;
-		}
 	
 		if (is_held(global.controls_debug.teleport)) {
 			with (objPlayer) {
@@ -154,20 +143,6 @@ if (global.debug_enable && global.game_started) {
 		if (keyboard_check(vk_control) && is_pressed(global.controls_debug.save)) {
 			save_game(true);
 			audio_play_sound(sndShoot, 0, false);
-		}
-		
-		if (is_pressed(global.controls_debug.roomD)) {
-			if (room_get_name(room_previous(room)) != "rOptions") {
-				instance_destroy(objPlayer);
-				room_goto_previous();
-			}
-		}
-		
-		if (is_pressed(global.controls_debug.roomU)) {
-			if (room != room_last) {
-				instance_destroy(objPlayer);
-				room_goto_next();
-			}
 		}
 	}
 }
