@@ -1,0 +1,1 @@
+array_foreach(avoidances, function(_element) { _element.draw() });

@@ -98,4 +98,15 @@ function seconds_to_frames(seconds) {
 function print(str) {
 	show_debug_message(str);
 }
+
+function draw_set_text(colour,font,halign,valign) 
+{
+	gml_pragma("forceinline");
+	
+	draw_set_colour(colour);
+	draw_set_font(font);
+	draw_set_halign(halign);
+	draw_set_valign(valign);
+}
+
 #endregion

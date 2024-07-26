@@ -23,6 +23,11 @@ function get_music() {
 			case rOptions:
 			    music = bgmGuyRock;
 			    break;
+			case rSampleRoomBoss:
+			    music = -2;
+			    break;
+				
+				
 		}
 	} else {
 		with (objPlayMusic) {
