@@ -15,9 +15,11 @@ function SampleAvoidance(_start, _music, _bpm) : AvoidanceParent(_start, _music,
 				with(instantiate_projectile(400, 304)) {	
 					speed = random_range(5, 7);
 					direction = random(360);
+					
 					var curvComp = add_component(Curving);
-					var curvTimer = add_component(CurvingTimer);
 					curvComp.curv = choose(-3, 3);
+					
+					var curvTimer = add_component(CurvingTimer);
 					curvTimer.time = 50;	
 				}
 			}
@@ -27,6 +29,7 @@ function SampleAvoidance(_start, _music, _bpm) : AvoidanceParent(_start, _music,
 				with(instantiate_projectile(400, 304)) {	
 					direction = random(360);
 					image_blend = c_yellow;
+					
 					var sineMove = add_component(SineMovement);
 					sineMove.spd_min = 2;
 					sineMove.spd_min = 12;
@@ -39,6 +42,7 @@ function SampleAvoidance(_start, _music, _bpm) : AvoidanceParent(_start, _music,
 			repeat(10) {
 				with(instantiate_projectile(400, 304, AdditionDrawing)) {	
 					direction = random(360);
+					
 					var curvComp = add_component(Curving);
 					curvComp.curv = choose(-0.8, 0.8);
 					
