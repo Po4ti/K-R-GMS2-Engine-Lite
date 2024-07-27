@@ -12,8 +12,7 @@ function SampleAvoidance(_start, _music, _bpm) : AvoidanceParent(_start, _music,
 		
 		if(in_beat_range(1, 15, 4) || in_beat_range(15, 16)) {
 			repeat(24) {
-				var obj = instance_create_layer(400, 304, "Instances", objSampleContainer);
-				with(obj) {	
+				with(instantiate_projectile(400, 304)) {	
 					speed = random_range(5, 7);
 					direction = random(360);
 					var curvComp = add_component(Curving);
@@ -25,8 +24,7 @@ function SampleAvoidance(_start, _music, _bpm) : AvoidanceParent(_start, _music,
 		}
 		if(time_in_array(val)) {
 			repeat(5) {
-				var obj = instance_create_layer(400, 304, "Instances", objSampleContainer);
-				with(obj) {	
+				with(instantiate_projectile(400, 304)) {	
 					direction = random(360);
 					image_blend = c_yellow;
 					var sineMove = add_component(SineMovement);
@@ -39,8 +37,7 @@ function SampleAvoidance(_start, _music, _bpm) : AvoidanceParent(_start, _music,
 		}		
 		if(in_beat_range(33, 55, 1)) {
 			repeat(10) {
-				var obj = instance_create_layer(400, 304, "Instances", objSampleContainer);
-				with(obj) {	
+				with(instantiate_projectile(400, 304, AdditionDrawing)) {	
 					direction = random(360);
 					var curvComp = add_component(Curving);
 					curvComp.curv = choose(-0.8, 0.8);
@@ -61,4 +58,4 @@ function SampleAvoidance(_start, _music, _bpm) : AvoidanceParent(_start, _music,
 	}
 }
 
-new SampleAvoidance(0, bgmSampleAvoidance, 150);
+new SampleAvoidance(global.debug_avoidance_time, bgmSampleAvoidance, 150);

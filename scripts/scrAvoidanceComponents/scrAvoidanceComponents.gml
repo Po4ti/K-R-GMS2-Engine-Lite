@@ -6,8 +6,14 @@ function update_container() {
 	for(var i = 1; i < array_length(__container__); i++) {
 		__container__[i].update(__container__[0]);
 	}
-
 }
+
+function draw_container() {
+	for(var i = 1; i < array_length(__container__); i++) {
+		__container__[i].draw(__container__[0]);
+	}
+}
+
 
 function add_component(componentName) {
 	if(!variable_instance_exists(id, "__container__")) {
@@ -67,6 +73,26 @@ function CurvingTimer() : Component() constructor
 				remove_component(Curving);
 				remove_component(CurvingTimer);
 			}
+		}
+	}
+}
+
+function BaseDrawing() : Component() constructor
+{	
+	static draw = function(id) {
+		with(id) {
+			draw_self();
+		}
+	}
+}
+
+function AdditionDrawing() : Component() constructor
+{	
+	static draw = function(id) {
+		with(id) {
+			gpu_set_blendmode(bm_add);
+			draw_self();
+			gpu_set_blendmode(bm_normal);
 		}
 	}
 }

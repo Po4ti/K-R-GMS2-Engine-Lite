@@ -87,3 +87,14 @@ function init_avoidance(obj) {
 		array_push(avoidances, obj);
 	}
 }
+	
+function instantiate_projectile(x, y, drawComponent=BaseDrawing, obj=objSampleContainer, layer="Instances") {
+	gml_pragma("forceinline");
+	var proj = instance_create_layer(x, y, layer, objSampleContainer);
+	if(drawComponent != -1) {
+			with(proj) {
+				add_component(drawComponent);	
+			}
+	}
+	return proj;
+}
